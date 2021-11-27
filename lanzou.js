@@ -55,7 +55,7 @@ $(function(){
 function view(o) {
 	let data=lanzouGet(o);
 		if(data.code==0){document.write("error: "+data.info);return;}
-		if(data.code==2){
+		if(data.code==1){
 			location.href=data.info;
 			return;
 		}
