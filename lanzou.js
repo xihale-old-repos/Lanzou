@@ -29,6 +29,7 @@ function lanzouGet(url,pwd=''){
     }
 }
 
+$("#download").css("display",'none');
 $("#select-exchange").on("click",function(){
     var file=$("file");
     for(let i=0;i<file.length;++i)
@@ -44,7 +45,6 @@ $("#download").on("click",function(){
         }
     }
 });
-
 
 function view(o) {
 	let data=lanzouGet(o);
