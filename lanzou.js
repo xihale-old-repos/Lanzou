@@ -28,38 +28,33 @@ function lanzouGet(url,pwd=''){
         return maker(1,`${data.dom}/file/${data.url}`);
     }
 }
-
-// var path = window.location.pathname;
-// if (path == "") { // 空
-
-// }
-$(function(){
-	$("#select-exchange").on("click",function(){
-		var file=$("file");
-		for(let i=0;i<file.length;++i)
-			$(file[i]).find(":first-child").trigger('click');
-	});
-	$("#download").on("click",function(){
-		var file=$("file");
-		for(let i=0;i<file.length;++i){
-			if($(file[i]).find(":first-child").css("background-color")!="rgba(0, 0, 0, 0)"){
-				let v=lanzouGet($(file[0]).attr("url"));
-				if(v.code==0)alert(v.info);
-				else window.open(v.info);
-			}
-		}
-	});
-})
+$("#select-exchange").on("click",function(){
+    var file=$("file");
+    for(let i=0;i<file.length;++i)
+        $(file[i]).find(":first-child").trigger('click');
+});
+$("#download").on("click",function(){
+    var file=$("file");
+    for(let i=0;i<file.length;++i){
+        if($(file[i]).find(":first-child").css("background-color")!="rgba(0, 0, 0, 0)"){
+            let v=lanzouGet($(file[0]).attr("url"));
+            if(v.code==0)alert(v.info);
+            else window.open(v.info);
+        }
+    }
+});
 
 
 function view(o) {
-	let data=lanzouGet(o);
+	alert(1);
+	let url=o.previousSibling.previousSibling.value.split(":"),
+		data=lanzouGet(url[0]+url[1],url[2]);
 		if(data.code==0){document.write("error: "+data.info);return;}
-		if(data.code==1){
+		if(data.code==2){
 			location.href=data.info;
 			return;
 		}
-		$("#download").css("display","");
+		$("#download").css("display","display");
 		data=data.info;
 		if(data.zt!=1){console.log("error: "+data.info);return;}
 		data=data.text;
