@@ -18,16 +18,15 @@ $(function(){
 			}
 		}
 	});
+	view(document.location.pathname);
 })
 
 
 function view(o) {
 	let url=o.previousSibling.previousSibling.value.split(":"),
 		data=lanzouGet(url[0]+url[1],url[2]);
-		if(data[0]!='{'){console.log("error: "+data);return;}
-		data=JSON.parse(data);
-		if(data.code==-1){console.log("error: "+data.info);return;}
-		if(data.code==1){
+		if(data.code==0){console.log("error: "+data.info);return;}
+		if(data.code==2){
 			window.open(data.info);
 			return;
 		}
