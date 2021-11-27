@@ -23,10 +23,6 @@ $(function(){
 function view(o) {
 	let url=o.previousSibling.previousSibling.value.split(":"),
 		data=lanzouGet(url[0]+url[1],url[2]);
-	// $.get('https:\\\\api.xihale.top:444\\lanzou', {
-	// 	url: url[0]+":"+url[1],  //注意空气
-	// 	key: url[2]
-	// },(data)=>{
 		if(data[0]!='{'){console.log("error: "+data);return;}
 		data=JSON.parse(data);
 		if(data.code==-1){console.log("error: "+data.info);return;}
@@ -57,5 +53,4 @@ function view(o) {
 		$(main).find("file div:not(.select)").on("click",function(){
 			$(this).parent().find(".select").trigger('click');
 		});
-	// });
 }
