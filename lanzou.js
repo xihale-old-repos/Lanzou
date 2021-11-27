@@ -53,9 +53,7 @@ $(function(){
 
 
 function view(o) {
-	alert(1);
-	let url=o.previousSibling.previousSibling.value.split(":"),
-		data=lanzouGet(url[0]+url[1],url[2]);
+	let data=lanzouGet(o);
 		if(data.code==0){document.write("error: "+data.info);return;}
 		if(data.code==2){
 			location.href=data.info;
