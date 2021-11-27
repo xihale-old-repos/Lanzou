@@ -59,7 +59,7 @@ function view(o) {
 			location.href=data.info;
 			return;
 		}
-		$("#downloca").css("display","");
+		$("#download").css("display","");
 		data=data.info;
 		if(data.zt!=1){console.log("error: "+data.info);return;}
 		data=data.text;
