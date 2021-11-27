@@ -53,7 +53,7 @@ function view(o) {
 			location.href=data.info;
 			return;
 		}
-		$("#download").css("display","display");
+		$("#download").css("display","contents");
 		data=data.info;
 		if(data.zt!=1){console.log("error: "+data.info);return;}
 		data=data.text;
