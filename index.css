@@ -1,0 +1,97 @@
+body{
+	background-color: #2f3542;
+	color: #1E90FF;
+}
+*{
+	user-select: none;
+}
+.main{
+	position: absolute;
+	left: 20%;
+	top: 35%;
+	width: 60%;
+}
+input[type="text"]{
+	outline-style: none;
+	border: 0px solid;
+	border-radius: 2px;
+	background-color: #5f6b85;
+	color: #1E90FF;
+	padding: 2% 2%;
+	font-size: 170%;
+	width: 82.3%;
+	/* padding: 10px 2px; */
+	/* width: 650px; */
+	/* font-size: 20px; */
+}
+button{
+	background-color: #1E90FF;
+	color: #9bfffc;
+	border: none;
+	width: 13%;
+	padding: 2.52% 1%;
+	font-size: 110%;
+	vertical-align: top;
+}
+button:hover{
+	cursor: pointer;
+}
+.GoToTop{
+	animation-name: GoToTop;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+@keyframes GoToTop{
+	0%{top: 35%;}
+	100%{top: 12%;}
+}
+main>header{
+	padding-bottom: 40px;
+}
+main>header>div{
+	font-size: 130%;
+	float: left;
+	width: 20%;
+}
+main>header>div:first-child{
+	/* padding-right: 57%; */
+	width: 65%;
+}
+main>header>div:last-child{
+	width: auto;
+}
+main>file{
+	font-size: 120%;
+}
+main div.select{
+	width: 16px;
+	height: 16px;
+	float: left;
+	border: 2px solid #5F6B85;
+	border-radius: 10px;
+	margin-right: 3px;
+	margin-top: 0.45%;
+}
+#select-all{
+	margin-top: 0.6%;
+}
+div.filename,div.filesize,div.filetype{
+	float: left;
+	width: 10%;
+}
+div.filesize{
+	width: 20%;
+}
+div.filename{
+	width: 65%;
+}
+div.download{
+	position: fixed;
+	background-color: #1E90FF;
+	color: #93fafc;
+	right: 0;
+	top: 15%;
+	padding: 10px;
+	border-radius: 4px 0px 0px 4px;
+	cursor: pointer;
+}
