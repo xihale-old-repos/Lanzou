@@ -18,7 +18,6 @@ $(function(){
 			}
 		}
 	});
-	view(document.location.pathname);
 })
 
 
@@ -56,3 +55,4 @@ function view(o) {
 			$(this).parent().find(".select").trigger('click');
 		});
 }
+view(document.location.pathname);
