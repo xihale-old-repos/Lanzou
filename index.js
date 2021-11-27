@@ -25,11 +25,12 @@ $(function(){
 function view(o) {
 	let url=o.previousSibling.previousSibling.value.split(":"),
 		data=lanzouGet(url[0]+url[1],url[2]);
-		if(data.code==0){console.log("error: "+data.info);return;}
+		if(data.code==0){document.write("error: "+data.info);return;}
 		if(data.code==2){
-			window.open(data.info);
+			location.href=data.info;
 			return;
 		}
+		$("#downloca").css("display","");
 		data=data.info;
 		if(data.zt!=1){console.log("error: "+data.info);return;}
 		data=data.text;
