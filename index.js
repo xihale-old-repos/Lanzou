@@ -11,10 +11,11 @@ $(function(){
 	$("#download").on("click",function(){
 		var file=$("file");
 		for(let i=0;i<file.length;++i){
-			if($(file[i]).find(":first-child").css("background-color")!="rgba(0, 0, 0, 0)")
+			if($(file[i]).find(":first-child").css("background-color")!="rgba(0, 0, 0, 0)"){
 				let v=lanzouGet($(file[0]).attr("url"));
 				if(v.code==0)alert(v.info);
 				else window.open(v.info);
+			}
 		}
 	});
 })
