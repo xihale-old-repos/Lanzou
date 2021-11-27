@@ -3,31 +3,30 @@
 
 // }
 $(function(){
-	$("#select-all").bind("click",function(){
+	$("#select-exchange").on("click",function(){
 		var file=$("file");
 		for(let i=0;i<file.length;++i)
-			$(file[i]).find(":first-child").click();
+			$(file[i]).find(":first-child").trigger('click');
 	});
-	$("#download").bind("click",function(){
+	$("#download").on("click",function(){
 		var file=$("file");
-		// file[0].getAttribute("url");
-		// $(file[0]).attr("url");
 		for(let i=0;i<file.length;++i){
 			if($(file[i]).find(":first-child").css("background-color")!="rgba(0, 0, 0, 0)")
-				$.get("https://api.xihale.top:444/lanzou",{url:"https://lanzoux.com/"+$(file[0]).attr("url")},function(data){
-					window.open(JSON.parse(data).info);
-				});
+				let val=lanzouGet($(file[0]).attr("url"));
+				if(val.code==0)alert(val.info);
+				else window.open(val.info);
 		}
 	});
 })
 
 
 function view(o) {
-	url=o.previousSibling.previousSibling.value.split(":");
-	$.get('https:\\\\api.xihale.top:444\\lanzou', {
-		url: url[0]+":"+url[1],  //注意空气
-		key: url[2]
-	},(data)=>{
+	let url=o.previousSibling.previousSibling.value.split(":"),
+		data=lanzouGet(url[0]+url[1],url[2]);
+	// $.get('https:\\\\api.xihale.top:444\\lanzou', {
+	// 	url: url[0]+":"+url[1],  //注意空气
+	// 	key: url[2]
+	// },(data)=>{
 		if(data[0]!='{'){console.log("error: "+data);return;}
 		data=JSON.parse(data);
 		if(data.code==-1){console.log("error: "+data.info);return;}
@@ -56,7 +55,7 @@ function view(o) {
 			}
 		});
 		$(main).find("file div:not(.select)").on("click",function(){
-			$(this).parent().find(".select").click();
+			$(this).parent().find(".select").trigger('click');
 		});
-	});
+	// });
 }
