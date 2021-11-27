@@ -1,4 +1,4 @@
-const lanzou='https://lanzoux.com';
+const lanzou=location.protocol+'//'+location.host;
 function ajax(url,data=null,headers={},type='POST'){
     var r;
     $.ajax({url:url,data:data,type:type,headers:headers,async:false,success:(result)=>{
