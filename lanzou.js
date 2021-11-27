@@ -28,6 +28,7 @@ function lanzouGet(url,pwd=''){
         return maker(1,`${data.dom}/file/${data.url}`);
     }
 }
+
 $("#select-exchange").on("click",function(){
     var file=$("file");
     for(let i=0;i<file.length;++i)
@@ -46,11 +47,9 @@ $("#download").on("click",function(){
 
 
 function view(o) {
-	alert(1);
-	let url=o.previousSibling.previousSibling.value.split(":"),
-		data=lanzouGet(url[0]+url[1],url[2]);
+	let data=lanzouGet(o);
 		if(data.code==0){document.write("error: "+data.info);return;}
-		if(data.code==2){
+		if(data.code==1){
 			location.href=data.info;
 			return;
 		}
